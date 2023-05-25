@@ -19,8 +19,8 @@ import static org.junit.Assert.*;
         @Parameterized.Parameters(name = "Проверка возвращаемого значения в зависимости от количества котят Тестовые данные: {0} {1}")
         public static Object[][] getKittensData() {
             return new Object[][]{
-                    { 1, true},
-                    { 9, false},
+                    { 0},
+                    { 9},
             };
         }
 
