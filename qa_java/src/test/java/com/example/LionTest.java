@@ -9,20 +9,25 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-@RunWith(MockitoJUnitRunner.class)
+
 public class LionTest {
-//Тесты
+
+    Feline feline = Mockito.mock(Feline.class);
+
+    @Before
+    public void init() {
+        MockitoAnnotations.openMocks(this);
     @Test
     public void getKittensLion() throws Exception {
-        Lion lion = new Lion("Самец");
-        int expectedGetKittens = 1;
-        int actualGetKittens = lion.getKittens();
-        assertEquals("У льва не может быть котят", expectedGetKittens, actualGetKittens);
+            Lion lion = new Lion("Самец", feline);
+            int expectedGetKittens = 0;
+            int actualGetKittens = lion.getKittens();
+            assertEquals("У льва не может быть котят", expectedGetKittens, actualGetKittens);
     }
 
     @Test
     public void doesHaveManeLion() throws Exception {
-        Lion lion = new Lion("Самец");
+        Lion lion = new Lion("Самец", feline);
         boolean expectedHasMane = true;
         boolean actualHasMane = lion.doesHaveMane();
         assertEquals("У льва есть грива", expectedHasMane, actualHasMane);
@@ -30,9 +35,8 @@ public class LionTest {
 
     @Test
     public void getFoodLion() throws Exception {
-        Lion lion = new Lion("Самец");
-        List<String> expectedGetFood = Arrays.asList("Животные", "Птицы", "Рыба");
-        List<String> actualGetFood = lion.getFood();
-        assertEquals("Список еды не соответствует Львиному = Хищнику", expectedGetFood, actualGetFood);
+            Lion lion = new Lion("Самец", feline);
+            lion.getFood();
+            Mockito.verify(feline, Mockito.times(1)).getFood("Хищник");
     }
 }

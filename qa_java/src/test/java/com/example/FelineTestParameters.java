@@ -16,11 +16,11 @@ import static org.junit.Assert.*;
             this.kittensCount = kittensCount;
         }
         //Параметр.тест
-        @Parameterized.Parameters
+        @Parameterized.Parameters(name = "Проверка возвращаемого значения в зависимости от количества котят Тестовые данные: {0} {1}")
         public static Object[][] getKittensData() {
             return new Object[][]{
-                    {0},
-                    {4},
+                    { 1, true},
+                    { 9, false},
             };
         }
 

@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 public class CatTest {
 
     @Mock
-    Feline feline;
+ private  Feline feline;
 //Тесты
     @Test
     public void getSound() {
